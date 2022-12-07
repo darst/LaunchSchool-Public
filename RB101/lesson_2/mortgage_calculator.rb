@@ -1,7 +1,7 @@
 # mortgage_calculator.rb
 
 def prompt(message)
-  Kernel.puts("=> #{message}")
+  puts("=> #{message}")
 end
 
 def integer(number)
@@ -18,28 +18,28 @@ loop do
   loan_amount = ''
   loop do
     prompt("Enter the loan amount:")
-    loan_amount = Kernel.gets().chomp()
+    loan_amount = gets.chomp
     break if integer(loan_amount) && loan_amount.to_i > 0
-    Kernel.puts("Please input an integer greater than zero.")
+    puts("Please input an integer greater than zero.")
   end
 
   annual_percentage_rate = ''
   loop do
     prompt("Enter the Annual Percentage Rate:")
     prompt("(Example: 5 for 5% or 2.5 for 2.5%)")
-    annual_percentage_rate = Kernel.gets.chomp
+    annual_percentage_rate = gets.chomp
     break if annual_percentage_rate.to_f > 0
-    Kernel.puts("Please enter a number greater than zero.")
+    puts("Please enter a number greater than zero.")
   end
 
   loan_duration = ''
   loan_duration_in_months = ''
   loop do
     prompt("Enter the loan duration:")
-    loan_duration = Kernel.gets.chomp
+    loan_duration = gets.chomp
     loop do
       prompt("Did you enter the duration in months or years? (M or Y)")
-      months_or_years = Kernel.gets.chomp
+      months_or_years = gets.chomp
       if months_or_years.upcase == 'Y'
         loan_duration_in_months = loan_duration.to_i * 12
         break
@@ -67,7 +67,7 @@ loop do
   run_again = ''
   loop do
     prompt("Do you want me to run another calculation?")
-    run_again = Kernel.gets.chomp
+    run_again = gets.chomp
     if run_again.upcase == 'Y' || run_again.upcase == "YES" ||
        run_again.upcase == 'N' || run_again.upcase == 'NO'
       break
